@@ -1,0 +1,20 @@
+# ------------------ Model ------------------ #
+model_name: yolov8n.pt          # base YOLO model
+data_yaml: "dataset/data.yaml"    # path to YOLO dataset YAML
+
+# ------------------ Training ------------------ #
+epochs: 1
+batch_size: 1
+img_size: 416
+learning_rate: 0.001
+device: cpu
+run_name: bsort_experiment
+pretrained: true
+
+
+
+# ------------------ Inference ------------------ #
+weights_path: model/yolov8nano_8200.pt
+conf_threshold: 0.25
+iou_threshold: 0.45
+
