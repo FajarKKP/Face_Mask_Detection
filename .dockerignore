@@ -46,3 +46,6 @@ build/
 # Training artifacts 
 runs/
 
+data/
+*.h5
+*.pt

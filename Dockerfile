@@ -1,9 +1,9 @@
-# ---- Stage 1: Builder (install only non-heavy runtime deps) ----
+# ---- Stage 1: Builder ----
 FROM python:3.11-slim AS builder
 
 WORKDIR /app
 
-# Install system deps needed for building Python packages
+# Install minimal system dependencies for building Python packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
         git \
         build-essential \
@@ -13,32 +13,30 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Upgrade pip
 RUN pip install --no-cache-dir --upgrade pip
 
-# Copy only dependency file
+# Copy only requirements
 COPY requirements.txt .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt \
-    && rm -rf /root/.cache/pip/*
+# Install Python dependencies (CPU-only, no cache)
+RUN pip install --no-cache-dir -r requirements.txt
 
-# ---- Stage 2: Final Runtime Image ----
+# ---- Stage 2: Runtime ----
 FROM python:3.11-slim AS runtime
 
 WORKDIR /app
 
-# Install minimal runtime system dependencies
+# Minimal system dependencies for runtime
 RUN apt-get update && apt-get install -y --no-install-recommends \
         git \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy installed Python packages from builder
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
-COPY --from=builder /usr/local/bin /usr/local/bin
 
-# Copy project files
+# Copy project source code
 COPY . .
 
-# Optional: install CPU-only torch (if not included in requirements.txt)
-RUN pip install --no-cache-dir torch==2.9.1 \
-    --index-url https://download.pytorch.org/whl/cpu
+# Remove any __pycache__ in site-packages to save space
+RUN find /usr/local/lib/python3.11/site-packages -type d -name "__pycache__" -exec rm -rf {} +
 
+# Set entrypoint to your CLI
 ENTRYPOINT ["python", "-m", "bsort.cli"]
