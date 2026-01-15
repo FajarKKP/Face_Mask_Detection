@@ -1,11 +1,13 @@
-# Virtual environments
-.venv/
-env/
-venv/
+# VS Code
+.vscode/
 
-# Python cache
-__pycache__/
-*.pyc
+# Virtual environment
+facemaskenv/
 
-# Ultralytics output
-runs/
+# Datasets
+dataset/train/
+dataset/test/
+dataset/valid/
+
+# Models
+model/

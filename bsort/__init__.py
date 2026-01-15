@@ -1,5 +1,5 @@
 """
-Bottle Cap Color Classifier (bsort)
+Face mask detection (bsort)
 A simple package supporting training and inference.
 """
 
