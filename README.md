@@ -6,7 +6,7 @@
 
 
 ## Overview
-**bsort** is a complete machine-learning pipeline for face mask detection using a YOLO-based model. It provides a Python CLI for training and inference, a YAML configuration system, optional training dependencies and a Docker-ready deployment pipeline. The project emphasizes reproducibility, automation, clean code, and practical ML engineering.
+**bsort** is a complete machine-learning pipeline for face mask detection using a YOLO-based model. It provides a Python CLI for training and inference, a YAML configuration system and optional training dependencies. The project emphasizes reproducibility, automation, clean code, and practical ML engineering.
 
 ## Features
 - End-to-end ML workflow (training and inference)
