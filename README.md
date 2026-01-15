@@ -14,7 +14,7 @@
 - YOLO-based detector using Ultralytics
 - Type hints and Google-style docstrings
 - CLI entrypoint: `python -m bsort.cli`
-- CI pipeline including formatting, linting, tests, and Docker build
+- CI pipeline including formatting, linting and test.
 
 ## Project Structure
 ```
@@ -62,11 +62,11 @@ source venv/bin/activate   # Linux/macOS
 venv\Scripts\activate      # Windows
 ```
 
-Install main dependencies
+Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
-List of Library used for this pipeline:
+List of Library used for this pipeline (for futher details, it can be seen in the requirements.txt file):
 numpy = to enable some Ultralytics library
 pyyaml = enables to write and edit yaml file
 ultralytics = a library that enables us to use YOLOv5n and YOLOv8n. It also provides tools related for training and infering on YOLO models.
