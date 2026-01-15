@@ -1,12 +1,11 @@
 """
 Inference module for Face Mask Detection using Ultralytics YOLO.
-
 """
 
 import os
+from datetime import datetime
 
 from ultralytics import YOLO
-
 from bsort.utils import load_config
 
 
@@ -21,12 +20,17 @@ def run_inference(
         save_dir: Directory to save output image with detections.
 
     Returns:
-        None
+        results: YOLO prediction results object
     """
     cfg = load_config(config_path)
 
     # Load YOLO model
     model = YOLO(cfg["weights_path"])
+
+    # Make save_dir absolute and unique for this run
+    save_dir = os.path.abspath(save_dir)
+    save_dir = os.path.join(save_dir, datetime.now().strftime("%Y%m%d_%H%M%S"))
+    os.makedirs(save_dir, exist_ok=True)
 
     # Run inference
     results = model.predict(
@@ -36,7 +40,8 @@ def run_inference(
         save=True,
         save_dir=save_dir,
         verbose=True,
+        exist_ok=True  # prevents YOLO from picking a different project folder
     )
 
-    print(f"Inference completed. Results saved in {os.path.abspath(save_dir)}")
+    print(f"Inference completed. Results saved in {save_dir}")
     return results
