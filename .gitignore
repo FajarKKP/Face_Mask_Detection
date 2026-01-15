@@ -9,5 +9,4 @@ dataset/train/
 dataset/test/
 dataset/valid/
 
-# Models
-model/
+
