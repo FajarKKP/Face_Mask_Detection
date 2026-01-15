@@ -11,7 +11,7 @@
 ## Features
 - End-to-end ML workflow (training and inference)
 - Config-driven pipeline (`settings.yaml`)
-- YOLO-based detector/classifier using Ultralytics
+- YOLO-based detector using Ultralytics
 - Type hints and Google-style docstrings
 - CLI entrypoint: `python -m bsort.cli`
 - CI pipeline including formatting, linting, tests, and Docker build
