@@ -1,5 +1,5 @@
 # ------------------ Model ------------------ #
-model_name: best.onnx          # base YOLO model
+model_name: yolov8n.pt          # base YOLO model
 data_yaml: "dataset/data.yaml"    # path to YOLO dataset YAML
 
 # ------------------ Training ------------------ #
@@ -14,7 +14,7 @@ pretrained: true
 
 
 # ------------------ Inference ------------------ #
-weights_path: model/yolov8nano_8200.pt
+weights_path: model/best.pt
 conf_threshold: 0.25
 iou_threshold: 0.45
 
