@@ -11,9 +11,7 @@ from bsort.train import run_training
 def main():
     """CLI entry point for running training/inference commands."""
 
-    parser = argparse.ArgumentParser(
-        description="BSort: Face Mask Detection CLI"
-    )
+    parser = argparse.ArgumentParser(description="BSort: Face Mask Detection CLI")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     # -------- Train -------- #
@@ -36,7 +34,6 @@ def main():
         default="runs/inference",
         help="Directory to save output",
     )
-
 
     args = parser.parse_args()
 

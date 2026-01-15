@@ -39,4 +39,3 @@ def run_inference(
     )
 
     print(f"Inference completed. Results saved in {os.path.abspath(save_dir)}")
-
