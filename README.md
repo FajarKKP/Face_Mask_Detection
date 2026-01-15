@@ -112,7 +112,7 @@ After inferencing, results can be seen runs/inference folder. Or if you start a 
 
 There are already examples in the runs folder. If you would like to try to train or inference, you can crosscheck your results with the one in the runs/bsort_experiment for training and runs/inference for inference.
 
-Summary, findings and next step:
+## Summary, findings and next step:
 This face mask development is done using Yolov5n. It is chosen due to its small size (1.9M parameter) while still able to perform. Dataset is taken from kaggle and preprocessed using Roboflow. For more details and explanation, it is explained on the folder Notebooks/facemask_detection_development.ipynb. At the final part, the issue is also trained using YOLOv8n. This is done for the sake of pipeline implementation (witht the limited time available, the current end-to-end pipeline can only work using Yolov8 model). So the Yolov8n model is used as a dummy / placeholder on how does the model, that is trained on notebook, used after the training process and integrated to an end-to-end system.
 
 
